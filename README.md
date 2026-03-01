@@ -11,6 +11,26 @@ also you can run endee using docker from docker hub without building it locally.
 
 ---
 
+## Implemented Module: Resume-Job Matcher (AI/ML on Endee)
+
+This base repository includes an implemented AI/ML module at `resume-job-matcher/`.
+
+### What is implemented
+
+* **Semantic Search** for resume ↔ job matching using vector embeddings
+* **Recommendations** (top jobs for a resume, top candidates for a job)
+* **RAG (Retrieval-Augmented Generation)** for natural-language match explanations (optional via Ollama)
+* **Agentic chat-style workflow** via API/web UI for commands like matching, analysis, and resume improvement
+* Vector-search-first architecture where Endee is the core retrieval engine
+
+### Company review guide
+
+* Module path: `resume-job-matcher/`
+* Detailed module documentation: `resume-job-matcher/README.md`
+* Includes project overview, problem statement, technical approach, Endee usage, setup, and execution steps
+
+---
+
 ## System Requirements
 
 Before installing, ensure your system meets the following hardware and operating system requirements.
