@@ -152,7 +152,7 @@ Use this checklist before sharing on GitHub.
 - [x] Well-defined AI/ML project using Endee as vector database
 - [x] Practical vector-first use case implemented (semantic search + recommendations)
 - [x] Optional RAG workflow implemented
-- [ ] Hosted on GitHub as complete project repository
+- [x] Hosted on GitHub as complete project repository
 - [x] README includes project overview and problem statement
 - [x] README includes system design and technical approach
 - [x] README explains how Endee is used
