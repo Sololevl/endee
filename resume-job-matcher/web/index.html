@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume-Job Agent</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h1>Resume-Job Agent</h1>
+      <p class="muted">Upload data, then chat with the agent.</p>
+
+      <section class="card">
+        <h2>Upload JSON</h2>
+        <label for="docType">Document type</label>
+        <select id="docType">
+          <option value="auto" selected>Auto detect</option>
+          <option value="resume">Resume</option>
+          <option value="job">Job</option>
+        </select>
+
+        <label for="fileInput">File</label>
+        <input id="fileInput" type="file" accept=".json,.pdf,.docx" />
+
+        <button id="uploadBtn">Upload</button>
+        <p id="uploadStatus" class="muted"></p>
+      </section>
+
+      <section class="card">
+        <h2>RAG Model</h2>
+        <label for="modelSelect">Ollama model</label>
+        <select id="modelSelect">
+          <option value="">Auto (smallest available)</option>
+        </select>
+        <p class="muted">Use small models if memory is low.</p>
+      </section>
+
+      <section class="card">
+        <h2>Quick Actions</h2>
+        <p class="muted" id="quickHelp">No recent uploads yet.</p>
+        <div id="quickActions" class="chip-wrap"></div>
+      </section>
+
+      <section class="card">
+        <h2>Search History</h2>
+        <p class="muted" id="historyHelp">No search history yet.</p>
+        <button id="clearHistoryBtn" type="button" class="secondary-btn">Clear History</button>
+        <div id="searchHistory" class="history-wrap"></div>
+      </section>
+
+      <section class="card">
+        <h2>Pinned Prompts</h2>
+        <p class="muted" id="favoriteHelp">No pinned prompts yet.</p>
+        <div id="favoritePrompts" class="history-wrap"></div>
+      </section>
+
+      <section class="card">
+        <h2>Examples</h2>
+        <ul>
+          <li>How many job positions are available now?</li>
+          <li>Find jobs for resume_001</li>
+          <li>Improve this resume with concrete fixes</li>
+          <li>Rewrite summary for ATS</li>
+          <li>In 250 words rewrite experience section</li>
+          <li>Based on my resume what roles fit me best?</li>
+          <li>Find candidates for job_003</li>
+          <li>Explain this match in bullet points</li>
+          <li>Analyze this job</li>
+        </ul>
+      </section>
+    </aside>
+
+    <main class="chat-pane">
+      <header class="chat-header">
+        <span class="dot"></span>
+        <div>
+          <strong>Agent Online</strong>
+          <p id="statusLine" class="muted">Checking services...</p>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="chatForm" class="composer">
+        <textarea id="messageInput" rows="2" placeholder="Ask about matches, explainability, or resume improvements..."></textarea>
+        <button id="sendBtn" type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

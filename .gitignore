@@ -30,3 +30,18 @@ frontend/*
 
 # DS Store
 .DS_Store
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Local environment variables / secrets
+.env
+.env.*
+
+# Resume-job-matcher local venv and env
+resume-job-matcher/venv/
+resume-job-matcher/.venv/
+resume-job-matcher/.env
+resume-job-matcher/.env.*
