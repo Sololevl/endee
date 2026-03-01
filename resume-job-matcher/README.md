@@ -19,6 +19,29 @@ Build a practical matching system where vector search is core, so similar skills
 
 ## 2) Technical Approach
 
+### System Design
+
+The application follows a modular retrieval architecture where Endee is the vector retrieval core and FastAPI/TUI provide interaction layers.
+
+**Layers and responsibilities**
+- **Input Layer**: JSON/PDF/DOCX upload and chat commands from web UI or TUI
+- **Ingestion Layer**: parsing + schema validation + dedup (`app/pipeline.py`, `app/schema.py`)
+- **Embedding Layer**: semantic vector generation using `sentence-transformers` (`app/embedder.py`)
+- **Vector Storage/Retrieval Layer**: Endee indexes (`resumes`, `jobs`) via REST client (`app/endee_client.py`)
+- **Matching Layer**: ranking and recommendation logic (`app/match.py`)
+- **Explanation Layer (optional)**: RAG generation through Ollama (`app/rag.py`)
+- **Serving Layer**: API/chat endpoints (`app/web_server.py`) and terminal workflow (`app/tui.py`)
+
+**End-to-end data flow**
+1. User uploads or selects resume/job data
+2. Data is validated and normalized
+3. Text is embedded into 384-d vectors
+4. Vectors + metadata are stored in Endee indexes
+5. Query embedding is generated from user input or selected entity
+6. Endee returns top-k nearest matches
+7. Results are formatted as recommendations
+8. Optional: retrieved context is sent to Ollama for RAG explanation/improvement output
+
 ### Pipeline
 1. Load resume/job JSON documents
 2. Validate schema
