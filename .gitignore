@@ -45,3 +45,7 @@ resume-job-matcher/venv/
 resume-job-matcher/.venv/
 resume-job-matcher/.env
 resume-job-matcher/.env.*
+
+# Python cache / bytecode
+__pycache__/
+*.pyc
