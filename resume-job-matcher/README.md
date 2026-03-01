@@ -2,6 +2,8 @@
 
 AI/ML project that matches resumes to jobs using semantic vector search, with optional RAG explanations.
 
+![Resume-Job Agent UI](docs/screenshots/ui-demo.png)
+
 ## 1) Project Overview
 
 ### Problem Statement
